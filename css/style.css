@@ -5,7 +5,7 @@
 }
 
 html {
-  font-size: 67.5%;
+  font-size: 62.5%;
 }
 
 body {
@@ -29,59 +29,30 @@ body {
 .error label {
   color: hsl(0, 100%, 67%);
 }
-.error .app-body__inputs__box--error-day,
-.error .app-body__inputs__box--error-month,
-.error .app-body__inputs__box--error-year {
+.error .app-body__inputs__box-error--day,
+.error .app-body__inputs__box-error--month,
+.error .app-body__inputs__box-error--year {
   display: flex;
 }
 
 .app-body {
   margin: 0 2rem;
-  width: 60rem;
-  height: 46rem;
+  width: 80rem;
+  height: 56rem;
   background-color: hsl(0, 0%, 100%);
   border-radius: 1.4rem;
   border-bottom-right-radius: 32%;
 }
-.app-body__inputs, .app-body__button, .app-body__results {
+.app-body__button, .app-body__results {
   margin-left: 4rem;
 }
 .app-body__inputs {
   display: flex;
-  margin-top: 6rem;
-  margin-bottom: 4rem;
+  margin: 6rem 0 4rem 4rem;
 }
 .app-body__inputs__box {
   display: flex;
   flex-direction: column;
-}
-.app-body__inputs__box--label-day, .app-body__inputs__box--label-month, .app-body__inputs__box--label-year {
-  margin-bottom: 0.4rem;
-  color: hsl(0, 1%, 44%);
-  text-transform: uppercase;
-  font-size: 1rem;
-  font-weight: bold;
-  letter-spacing: 0.1rem;
-}
-.app-body__inputs__box--input-day, .app-body__inputs__box--input-month, .app-body__inputs__box--input-year {
-  padding: 0.6rem 1.2rem;
-  width: 11rem;
-  font-size: 3.2rem;
-  font-weight: bold;
-  border: 1px solid hsl(0, 0%, 86%);
-  border-radius: 0.8rem;
-}
-.app-body__inputs__box--input-day:focus, .app-body__inputs__box--input-month:focus, .app-body__inputs__box--input-year:focus {
-  outline: none;
-  border: 1px solid hsl(259, 100%, 65%);
-}
-.app-body__inputs__box--input-day::-moz-placeholder, .app-body__inputs__box--input-month::-moz-placeholder, .app-body__inputs__box--input-year::-moz-placeholder {
-  font-size: 2.6rem;
-  text-transform: uppercase;
-}
-.app-body__inputs__box--input-day::placeholder, .app-body__inputs__box--input-month::placeholder, .app-body__inputs__box--input-year::placeholder {
-  font-size: 2.6rem;
-  text-transform: uppercase;
 }
 .app-body__inputs__box input::-webkit-outer-spin-button,
 .app-body__inputs__box input::-webkit-inner-spin-button {
@@ -93,14 +64,43 @@ body {
      -moz-appearance: textfield;
           appearance: textfield;
 }
-.app-body__inputs__box--error-day, .app-body__inputs__box--error-month, .app-body__inputs__box--error-year {
+.app-body__inputs__box:nth-child(n+2) {
+  margin-left: 2.5rem;
+}
+.app-body__inputs__box-label--day, .app-body__inputs__box-label--month, .app-body__inputs__box-label--year {
+  margin-bottom: 0.4rem;
+  color: hsl(0, 1%, 44%);
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 0.1rem;
+}
+.app-body__inputs__box-input--day, .app-body__inputs__box-input--month, .app-body__inputs__box-input--year {
+  padding: 0.8rem 1.4rem;
+  width: 13rem;
+  font-size: 3.2rem;
+  font-weight: bold;
+  border: 1px solid hsl(0, 0%, 86%);
+  border-radius: 0.8rem;
+}
+.app-body__inputs__box-input--day:focus, .app-body__inputs__box-input--month:focus, .app-body__inputs__box-input--year:focus {
+  outline: none;
+  border: 1px solid hsl(259, 100%, 65%);
+}
+.app-body__inputs__box-input--day::-moz-placeholder, .app-body__inputs__box-input--month::-moz-placeholder, .app-body__inputs__box-input--year::-moz-placeholder {
+  font-size: 2.6rem;
+  text-transform: uppercase;
+}
+.app-body__inputs__box-input--day::placeholder, .app-body__inputs__box-input--month::placeholder, .app-body__inputs__box-input--year::placeholder {
+  font-size: 2.6rem;
+  text-transform: uppercase;
+}
+.app-body__inputs__box-error--day, .app-body__inputs__box-error--month, .app-body__inputs__box-error--year {
   display: none;
   margin-top: 1rem;
   color: hsl(0, 100%, 67%);
   font-style: italic;
-}
-.app-body__inputs__box:nth-child(n+2) {
-  margin-left: 2.5rem;
+  font-size: 1.2rem;
 }
 .app-body__button {
   display: flex;
@@ -117,8 +117,8 @@ body {
   position: absolute;
   top: -3.5rem;
   left: 80%;
-  height: 7rem;
-  width: 7rem;
+  height: 9rem;
+  width: 9rem;
   background-image: url("../img/icon-arrow.svg");
   background-position: center;
   background-size: 50%;
@@ -139,19 +139,22 @@ body {
   display: flex;
   align-items: center;
 }
-.app-body__results__box--result-years, .app-body__results__box--result-months, .app-body__results__box--result-days, .app-body__results__box--label {
-  font-size: 6.8rem;
+.app-body__results__box--label {
+  font-size: 8.4rem;
+  font-weight: 800;
+  font-style: italic;
+  line-height: 0.6rem;
+}
+.app-body__results__box-result--years, .app-body__results__box-result--months, .app-body__results__box-result--days {
+  font-size: 8.4rem;
   font-weight: 800;
   font-style: italic;
 }
-.app-body__results__box--result-years, .app-body__results__box--result-months, .app-body__results__box--result-days {
+.app-body__results__box-result--years, .app-body__results__box-result--months, .app-body__results__box-result--days {
   color: hsl(259, 100%, 65%);
   font-size: 7.4rem;
   letter-spacing: 1rem;
-  line-height: 105%;
-}
-.app-body__results__box--label {
-  line-height: 0.2rem;
+  line-height: 130%;
 }
 
 @media (max-width: 420px) {
@@ -167,20 +170,21 @@ body {
   .app-body__inputs__box:nth-child(n+2) {
     margin-left: 1.5rem;
   }
-  .app-body__inputs__box--input-day, .app-body__inputs__box--input-month, .app-body__inputs__box--input-year {
+  .app-body__inputs__box-input--day, .app-body__inputs__box-input--month, .app-body__inputs__box-input--year {
     width: 8rem;
     font-size: 2.2rem;
   }
-  .app-body__inputs__box--input-day::-moz-placeholder, .app-body__inputs__box--input-month::-moz-placeholder, .app-body__inputs__box--input-year::-moz-placeholder {
+  .app-body__inputs__box-input--day::-moz-placeholder, .app-body__inputs__box-input--month::-moz-placeholder, .app-body__inputs__box-input--year::-moz-placeholder {
     font-size: 1.6rem;
   }
-  .app-body__inputs__box--input-day::placeholder, .app-body__inputs__box--input-month::placeholder, .app-body__inputs__box--input-year::placeholder {
+  .app-body__inputs__box-input--day::placeholder, .app-body__inputs__box-input--month::placeholder, .app-body__inputs__box-input--year::placeholder {
     font-size: 1.6rem;
   }
   .app-body__button {
     margin-top: 6rem;
     margin-left: 1.5rem;
     margin-right: 1.5rem;
+    margin: 6rem 1.5rem 0 1.5rem;
   }
   .app-body__button--line {
     width: 100%;
@@ -193,26 +197,28 @@ body {
     margin-top: 8rem;
     margin-left: 1.5rem;
   }
-  .app-body__results__box--result-years, .app-body__results__box--result-months, .app-body__results__box--result-days, .app-body__results__box--label {
-    font-size: 4.6rem;
-  }
   .app-body__results__box--label {
     letter-spacing: 0;
+    font-size: 4.6rem;
+  }
+  .app-body__results__box-result--years, .app-body__results__box-result--months, .app-body__results__box-result--days {
+    font-size: 4.6rem;
   }
 }
 @media (max-width: 300px) {
   .app-body {
     width: 24rem;
   }
-  .app-body__inputs__box--input-day, .app-body__inputs__box--input-month, .app-body__inputs__box--input-year {
+  .app-body__inputs__box-input--day, .app-body__inputs__box-input--month, .app-body__inputs__box-input--year {
     padding: 0.4rem 0.8rem;
     width: 6.4rem;
     font-size: 2.2rem;
   }
-  .app-body__results__box--result-years, .app-body__results__box--result-months, .app-body__results__box--result-days, .app-body__results__box--label {
-    font-size: 3.6rem;
-  }
   .app-body__results__box--label {
     letter-spacing: 0;
+    font-size: 3.6rem;
+  }
+  .app-body__results__box__box-result--years, .app-body__results__box__box-result--months, .app-body__results__box__box-result--days {
+    font-size: 3.6rem;
   }
 }/*# sourceMappingURL=style.css.map */

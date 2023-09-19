@@ -1,3 +1,5 @@
+@use './colors';
+
 * {
 	box-sizing: border-box;
 	padding: 0;
@@ -5,7 +7,7 @@
 }
 
 html {
-	font-size: 67.5%;
+	font-size: 62.5%;
 }
 
 body {
@@ -14,7 +16,7 @@ body {
 	align-items: center;
 	min-height: 100vh;
 	font-family: 'Poppins', sans-serif;
-	background-color: hsl(0, 0%, 94%);
+	background-color: $body-color;
 }
 
 .wrapper {
@@ -23,31 +25,30 @@ body {
 	max-width: 1440px;
 }
 
-.error{
-	input{
-		border-color: hsl(0, 100%, 67%);
+.error {
+	input {
+		border-color: $error-color;
 	}
 
-	label{
-		color: hsl(0, 100%, 67%);
+	label {
+		color: $error-color;
 	}
 
-	.app-body__inputs__box--error-day,
-	.app-body__inputs__box--error-month,
-	.app-body__inputs__box--error-year{
+	.app-body__inputs__box-error--day,
+	.app-body__inputs__box-error--month,
+	.app-body__inputs__box-error--year {
 		display: flex;
 	}
 }
 
 .app-body {
 	margin: 0 2rem;
-	width: 60rem;
-	height: 46rem;
-	background-color: hsl(0, 0%, 100%);
+	width: 80rem;
+	height: 56rem;
+	background-color: $app-bg;
 	border-radius: 1.4rem;
 	border-bottom-right-radius: 32%;
 
-	&__inputs,
 	&__button,
 	&__results {
 		margin-left: 4rem;
@@ -55,48 +56,11 @@ body {
 
 	&__inputs {
 		display: flex;
-		margin-top: 6rem;
-		margin-bottom: 4rem;
+		margin: 6rem 0 4rem 4rem;
 
 		&__box {
 			display: flex;
 			flex-direction: column;
-
-			&--label-day,
-            &--label-month,
-            &--label-year {
-				margin-bottom: 0.4rem;
-				color: hsl(0, 1%, 44%);
-				text-transform: uppercase;
-				font-size: 1rem;
-				font-weight: bold;
-				letter-spacing: 0.1rem;
-			}
-
-			&--input-day,
-			&--input-month,
-			&--input-year {
-				padding: 0.6rem 1.2rem;
-				width: 11rem;
-				font-size: 3.2rem;
-				font-weight: bold;
-				border: 1px solid hsl(0, 0%, 86%);
-				border-radius: 0.8rem;
-			}
-
-			&--input-day:focus,
-			&--input-month:focus,
-			&--input-year:focus {
-				outline: none;
-				border: 1px solid hsl(259, 100%, 65%);
-			}
-
-			&--input-day::placeholder,
-			&--input-month::placeholder,
-			&--input-year::placeholder {
-				font-size: 2.6rem;
-				text-transform: uppercase;
-			}
 
 			input::-webkit-outer-spin-button,
 			input::-webkit-inner-spin-button {
@@ -107,19 +71,62 @@ body {
 			input[type='number'] {
 				appearance: textfield;
 			}
-
-            &--error-day,
-            &--error-month,
-            &--error-year{
-				display: none;
-                margin-top: 1rem;
-                color: hsl(0, 100%, 67%);
-                font-style: italic;
-            }
 		}
 
 		&__box:nth-child(n + 2) {
 			margin-left: 2.5rem;
+		}
+
+		&__box-label {
+			&--day,
+			&--month,
+			&--year {
+				margin-bottom: 0.4rem;
+				color: $date-color;
+				text-transform: uppercase;
+				font-size: 1rem;
+				font-weight: bold;
+				letter-spacing: 0.1rem;
+			}
+		}
+
+		&__box-input {
+			&--day,
+			&--month,
+			&--year {
+				padding: 0.8rem 1.4rem;
+				width: 13rem;
+				font-size: 3.2rem;
+				font-weight: bold;
+				border: 1px solid $input-border-color;
+				border-radius: 0.8rem;
+			}
+
+			&--day:focus,
+			&--month:focus,
+			&--year:focus {
+				outline: none;
+				border: 1px solid $purple;
+			}
+
+			&--day::placeholder,
+			&--month::placeholder,
+			&--year::placeholder {
+				font-size: 2.6rem;
+				text-transform: uppercase;
+			}
+		}
+
+		&__box-error {
+			&--day,
+			&--month,
+			&--year {
+				display: none;
+				margin-top: 1rem;
+				color: $error-color;
+				font-style: italic;
+				font-size: 1.2rem;
+			}
 		}
 	}
 
@@ -132,20 +139,20 @@ body {
 			width: 80%;
 			height: 0.1rem;
 			border: 0;
-			border-top: 1px solid hsl(0, 0%, 86%);
+			border-top: 1px solid $input-border-color;
 		}
 
 		&--button {
 			position: absolute;
 			top: -3.5rem;
 			left: 80%;
-			height: 7rem;
-			width: 7rem;
+			height: 9rem;
+			width: 9rem;
 			background-image: url('../img/icon-arrow.svg');
 			background-position: center;
 			background-size: 50%;
 			background-repeat: no-repeat;
-			background-color: hsl(259, 100%, 65%);
+			background-color: $purple;
 			border: none;
 			border-radius: 50%;
 			cursor: pointer;
@@ -153,7 +160,7 @@ body {
 		}
 
 		&--button:hover {
-			background-color: hsl(0, 0%, 8%);
+			background-color: $hover-color;
 		}
 	}
 
@@ -164,31 +171,34 @@ body {
 			display: flex;
 			align-items: center;
 
-			&--result-years,
-			&--result-months,
-			&--result-days,
-			&--label {
-				font-size: 6.8rem;
+			&--label{
+				font-size: 8.4rem;
+				font-weight: 800;
+				font-style: italic;
+				line-height: 0.6rem;
+			}
+		}
+
+		&__box-result {
+			&--years,
+			&--months,
+			&--days {
+				font-size: 8.4rem;
 				font-weight: 800;
 				font-style: italic;
 			}
 
-			&--result-years,
-			&--result-months,
-			&--result-days {
-				color: hsl(259, 100%, 65%);
+			&--years,
+			&--months,
+			&--days {
+				color: $purple;
 				font-size: 7.4rem;
 				letter-spacing: 1rem;
-				line-height: 105%;
-			}
-
-			&--label {
-				line-height: 0.2rem;
+				line-height: 130%;
 			}
 		}
 	}
 }
-
 
 @media (max-width: 420px) {
 	.app-body {
@@ -204,17 +214,17 @@ body {
 				margin-left: 1.5rem;
 			}
 
-			&__box {
-				&--input-day,
-				&--input-month,
-				&--input-year {
+			&__box-input {
+				&--day,
+				&--month,
+				&--year {
 					width: 8rem;
 					font-size: 2.2rem;
 				}
 
-				&--input-day::placeholder,
-				&--input-month::placeholder,
-				&--input-year::placeholder {
+				&--day::placeholder,
+				&--month::placeholder,
+				&--year::placeholder {
 					font-size: 1.6rem;
 				}
 			}
@@ -224,6 +234,7 @@ body {
 			margin-top: 6rem;
 			margin-left: 1.5rem;
 			margin-right: 1.5rem;
+			margin: 6rem 1.5rem 0 1.5rem;
 
 			&--line {
 				width: 100%;
@@ -240,31 +251,33 @@ body {
 			margin-left: 1.5rem;
 
 			&__box {
-				&--result-years,
-				&--result-months,
-				&--result-days,
-				&--label {
-					font-size: 4.6rem;
-				}
 
 				&--label {
 					letter-spacing: 0;
+					font-size: 4.6rem;
+				}
+			}
+
+			&__box-result{
+				&--years,
+				&--months,
+				&--days {
+					font-size: 4.6rem;
 				}
 			}
 		}
 	}
 }
 
-
-@media (max-width: 300px){
-	.app-body{
+@media (max-width: 300px) {
+	.app-body {
 		width: 24rem;
 
-		&__inputs{
-			&__box{
-				&--input-day,
-				&--input-month,
-				&--input-year {
+		&__inputs {
+			&__box-input{
+				&--day,
+				&--month,
+				&--year {
 					padding: 0.4rem 0.8rem;
 					width: 6.4rem;
 					font-size: 2.2rem;
@@ -274,16 +287,19 @@ body {
 
 		&__results {
 			&__box {
-				&--result-years,
-				&--result-months,
-				&--result-days,
-				&--label {
-					font-size: 3.6rem;
-				}
-
 				&--label {
 					letter-spacing: 0;
+					font-size: 3.6rem;
 				}
+			
+			&__box-result{
+				&--years,
+				&--months,
+				&--days {
+					font-size: 3.6rem;
+				}
+			}
+				
 			}
 		}
 	}

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en-US">
 
 <head>
     <meta charset="UTF-8">
@@ -18,21 +18,21 @@
     <main class="app-body">
         <div class="wrapper">
             <section class="app-body__inputs">
-                <div class="app-body__inputs__box">
-                    <label for="day" class="app-body__inputs__box--label-day">day</label>
-                    <input id="day" type="number" class="app-body__inputs__box--input-day" placeholder="dd">
-                    <p class="app-body__inputs__box--error-day">This field is required</p>
-                </div>
-                <div class="app-body__inputs__box">
-                    <label for="month" class="app-body__inputs__box--label-month">month</label>
-                    <input id="month" type="number" class="app-body__inputs__box--input-month" placeholder="mm">
-                    <p class="app-body__inputs__box--error-month">This field is required</p>
-                </div>
-                <div class="app-body__inputs__box">
-                    <label for="year" class="app-body__inputs__box--label-year">year</label>
-                    <input id="year" type="number" class="app-body__inputs__box--input-year" placeholder="yyyy">
-                    <p class="app-body__inputs__box--error-year">This field is required</p>
-                </div>
+                <form class="app-body__inputs__box">
+                    <label for="day" class="app-body__inputs__box-label--day">day</label>
+                    <input id="day" type="number" class="app-body__inputs__box-input--day" placeholder="dd">
+                    <p class="app-body__inputs__box-error--day">This field is required</p>
+                </form>
+                <form class="app-body__inputs__box">
+                    <label for="month" class="app-body__inputs__box-label--month">month</label>
+                    <input id="month" type="number" class="app-body__inputs__box-input--month" placeholder="mm">
+                    <p class="app-body__inputs__box-error--month">This field is required</p>
+                </form>
+                <form class="app-body__inputs__box">
+                    <label for="year" class="app-body__inputs__box-label--year">year</label>
+                    <input id="year" type="number" class="app-body__inputs__box-input--year" placeholder="yyyy">
+                    <p class="app-body__inputs__box-error--year">This field is required</p>
+                </form>
             </section>
 
             <section class="app-body__button">
@@ -42,15 +42,15 @@
 
             <section class="app-body__results">
                 <div class="app-body__results__box">
-                    <p class="app-body__results__box--result-years">--</p>
+                    <p class="app-body__results__box-result--years">--</p>
                     <p class="app-body__results__box--label">years</p>
                 </div>
                 <div class="app-body__results__box">
-                    <p class="app-body__results__box--result-months">--</p>
+                    <p class="app-body__results__box-result--months">--</p>
                     <p class="app-body__results__box--label">months</p>
                 </div>
                 <div class="app-body__results__box">
-                    <p class="app-body__results__box--result-days">--</p>
+                    <p class="app-body__results__box-result--days">--</p>
                     <p class="app-body__results__box--label">days</p>
                 </div>
             </section>
